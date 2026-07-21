@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import './RegisterTable.css';
 import { FaRegTrashAlt } from "react-icons/fa";
 import ConfirmDeleteModalU from '../confirmDeleteModalU/ConfirmDeleteModalU';
@@ -22,7 +23,7 @@ export default function RegisterTable() {
             }
 
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/attendance-info?workgroup_id=${workgroupId}`); // Endpoint actualizado
+                const response = await fetch(`${API_URL}/attendance-info?workgroup_id=${workgroupId}`); // Endpoint actualizado
                 const data = await response.json();
                 if (response.ok) {
                     setAttendances(data.data); // Suponiendo que 'data' contiene la lista de registros
@@ -43,7 +44,7 @@ export default function RegisterTable() {
 
     const confirmDelete = async () => {
         try {
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/attendance/${attendanceToDelete}`, {
+            const response = await fetch(`${API_URL}/attendance/${attendanceToDelete}`, {
                 method: 'DELETE',
             });
 

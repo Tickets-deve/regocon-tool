@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import './TicketsTable.css';
 import { FaEdit, FaRegTrashAlt, FaEye } from "react-icons/fa";
 import ConfirmDeleteModalU from '../confirmDeleteModalU/ConfirmDeleteModalU';
@@ -23,7 +24,7 @@ export default function TicketsTable() {
 
             try {
                 // Cambiar la URL para incluir el workgroup_id en la solicitud
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/ticket-categories-with-counts?workgroup_id=${workgroupId}`);
+                const response = await fetch(`${API_URL}/ticket-categories-with-counts?workgroup_id=${workgroupId}`);
                 const data = await response.json();
                 if (response.ok) {
                     setTicketCategories(data.data); // Cargar categorías de boletos filtradas
@@ -45,7 +46,7 @@ export default function TicketsTable() {
 
     const confirmDelete = async () => {
         try {
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/ticket-categories/${categoryToDelete}`, {
+            const response = await fetch(`${API_URL}/ticket-categories/${categoryToDelete}`, {
                 method: 'DELETE',
             });
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import './UsersTable.css';
 import { FaRegTrashAlt } from "react-icons/fa";
 import ConfirmDeleteModalU from '../confirmDeleteModalU/ConfirmDeleteModalU';
@@ -22,7 +23,7 @@ export default function UsersTable() {
             }
 
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/usersmembership?workgroup_id=${workgroupId}`); // Cambiar endpoint
+                const response = await fetch(`${API_URL}/usersmembership?workgroup_id=${workgroupId}`); // Cambiar endpoint
                 const data = await response.json();
                 if (response.ok) {
                     setUsers(data.data); // Asegúrate de que 'data' contenga la lista de usuarios
@@ -43,7 +44,7 @@ export default function UsersTable() {
 
     const confirmDelete = async () => {
         try {
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/users/${userToDelete}`, {
+            const response = await fetch(`${API_URL}/users/${userToDelete}`, {
                 method: 'DELETE',
             });
 

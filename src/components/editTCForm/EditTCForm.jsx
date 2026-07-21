@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import { IoArrowBackOutline } from "react-icons/io5";
 import './EditTCForm.css';
@@ -20,7 +21,7 @@ export default function EditTCForm() {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/ticket-categories/${id}`);
+                const response = await fetch(`${API_URL}/ticket-categories/${id}`);
                 const data = await response.json();
                 if (response.ok) {
                     setFormData(data.data); // Cargar datos de la categoría
@@ -43,7 +44,7 @@ export default function EditTCForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/ticket-categories/${id}`, {
+            const response = await fetch(`${API_URL}/ticket-categories/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

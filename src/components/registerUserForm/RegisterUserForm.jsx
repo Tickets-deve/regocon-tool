@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from '../../config/api';
 import './RegisterUserForm.css';
 
 export default function RegisterUserForm() {
@@ -18,7 +19,7 @@ export default function RegisterUserForm() {
         e.preventDefault();
         
         try {
-            const response = await fetch('https://recgonback-8awa0rdv.b4a.run/users', {
+            const response = await fetch(`${API_URL}/users`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

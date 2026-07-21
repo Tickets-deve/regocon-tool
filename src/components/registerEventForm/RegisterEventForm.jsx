@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import './RegisterEventForm.css';
 
 export default function RegisterEventForm() {
@@ -24,7 +25,7 @@ export default function RegisterEventForm() {
             }
 
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/ticket-categories?workgroup_id=${workgroupId}`);
+                const response = await fetch(`${API_URL}/ticket-categories?workgroup_id=${workgroupId}`);
                 const data = await response.json();
                 if (response.ok) {
                     setCategories(data.data);
@@ -53,7 +54,7 @@ export default function RegisterEventForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://recgonback-8awa0rdv.b4a.run/events', {
+            const response = await fetch(`${API_URL}/events`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

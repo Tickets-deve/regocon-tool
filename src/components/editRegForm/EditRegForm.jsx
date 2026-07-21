@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import './EditRegForm.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import QRCodeScannerModal from '../qrScannerModal/QRCodeScannerModal';
@@ -23,7 +24,7 @@ export default function EditRegForm() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/attendance/${id}`); // Cambiado al nuevo endpoint
+                const response = await fetch(`${API_URL}/attendance/${id}`); // Cambiado al nuevo endpoint
                 const data = await response.json();
                 if (response.ok) {
                     setFormData(data.data);
@@ -37,7 +38,7 @@ export default function EditRegForm() {
 
         const fetchUsers = async () => {
             try {
-                const response = await fetch('https://recgonback-8awa0rdv.b4a.run/users');
+                const response = await fetch(`${API_URL}/users`);
                 const data = await response.json();
                 if (response.ok) {
                     setUsers(data.data);
@@ -58,7 +59,7 @@ export default function EditRegForm() {
             }
 
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/events?workgroup_id=${workgroupId}`);
+                const response = await fetch(`${API_URL}/events?workgroup_id=${workgroupId}`);
                 const data = await response.json();
                 if (response.ok) {
                     setEvents(data.data);
@@ -84,7 +85,7 @@ export default function EditRegForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/attendance/${id}`, { // Cambiado al nuevo endpoint
+            const response = await fetch(`${API_URL}/attendance/${id}`, { // Cambiado al nuevo endpoint
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

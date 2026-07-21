@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import { IoArrowBackOutline } from "react-icons/io5";
 import './EditEventForm.css';
@@ -21,7 +22,7 @@ export default function EditEventForm() {
     useEffect(() => {
         const fetchEvent = async () => {
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/events/${id}`);
+                const response = await fetch(`${API_URL}/events/${id}`);
                 const data = await response.json();
                 if (response.ok) {
                     // Asegúrate de que la fecha esté en el formato correcto
@@ -47,7 +48,7 @@ export default function EditEventForm() {
             }
     
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/ticket-categories?workgroup_id=${workgroupId}`); // Modificar la URL para incluir el workgroup_id
+                const response = await fetch(`${API_URL}/ticket-categories?workgroup_id=${workgroupId}`); // Modificar la URL para incluir el workgroup_id
                 const data = await response.json();
                 if (response.ok) {
                     setCategories(data.data); // Suponiendo que 'data' contiene la lista de categorías
@@ -72,7 +73,7 @@ export default function EditEventForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/events/${id}`, {
+            const response = await fetch(`${API_URL}/events/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

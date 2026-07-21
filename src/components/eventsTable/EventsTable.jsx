@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import './EventsTable.css';
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import ConfirmDeleteModalU from '../confirmDeleteModalU/ConfirmDeleteModalU';
@@ -22,7 +23,7 @@ export default function EventsTable() {
             }
         
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/events?workgroup_id=${workgroupId}`);
+                const response = await fetch(`${API_URL}/events?workgroup_id=${workgroupId}`);
                 const data = await response.json();
                 if (response.ok) {
                     setEvents(data.data); 
@@ -44,7 +45,7 @@ export default function EventsTable() {
 
     const confirmDelete = async () => {
         try {
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/events/${eventToDelete}`, {
+            const response = await fetch(`${API_URL}/events/${eventToDelete}`, {
                 method: 'DELETE',
             });
 

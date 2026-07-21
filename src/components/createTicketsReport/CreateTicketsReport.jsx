@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import { useNavigate } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -27,7 +28,7 @@ export default function CreateTicketsReport() {
 
             try {
                 // Modificar la URL para incluir el workgroup_id
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/ticket-view?workgroup_id=${workgroupId}`); 
+                const response = await fetch(`${API_URL}/ticket-view?workgroup_id=${workgroupId}`); 
                 const data = await response.json();
                 if (response.ok) {
                     setTickets(data.data); // Actualizar para obtener la información de los boletos

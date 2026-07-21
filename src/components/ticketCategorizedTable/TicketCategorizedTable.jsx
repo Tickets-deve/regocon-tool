@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import './TicketCategorizedTable.css';
 import { FaQrcode, FaRegTrashAlt } from "react-icons/fa";
 import { IoArrowBackOutline, IoCloseOutline } from "react-icons/io5";
@@ -19,7 +20,7 @@ export default function TicketCategorizedTable() {
     useEffect(() => {
         const fetchTickets = async () => {
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/tickets/category/${category_id}`);
+                const response = await fetch(`${API_URL}/tickets/category/${category_id}`);
                 const data = await response.json();
                 if (response.ok) {
                     setTickets(data.data);
@@ -40,7 +41,7 @@ export default function TicketCategorizedTable() {
 
     const confirmDelete = async () => {
         try {
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/tickets/${ticketToDelete}`, {
+            const response = await fetch(`${API_URL}/tickets/${ticketToDelete}`, {
                 method: 'DELETE',
             });
 

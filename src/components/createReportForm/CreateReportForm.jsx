@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import { useNavigate } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -26,7 +27,7 @@ export default function CreateReportForm() {
             }
 
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/usersmembership?workgroup_id=${workgroupId}`); // Llama al endpoint con el workgroup_id
+                const response = await fetch(`${API_URL}/usersmembership?workgroup_id=${workgroupId}`); // Llama al endpoint con el workgroup_id
                 const data = await response.json();
                 if (response.ok) {
                     setUsers(data.data); // Suponiendo que 'data' contiene la lista de usuarios

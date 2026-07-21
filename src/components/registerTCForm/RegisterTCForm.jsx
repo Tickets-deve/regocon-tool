@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../../config/api';
 import { useNavigate } from 'react-router-dom'; // Asegúrate de importar useNavigate
 import './RegisterTCForm.css';
 import { IoArrowBackOutline } from "react-icons/io5"; // Asegúrate de importar el icono
@@ -34,7 +35,7 @@ export default function RegisterTCForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://recgonback-8awa0rdv.b4a.run/ticket-categories', {
+            const response = await fetch(`${API_URL}/ticket-categories`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

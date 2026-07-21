@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config/api';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import './EventStatistics.css';
@@ -13,7 +14,7 @@ const EventStatistics = () => {
         const fetchEventStatistics = async () => {
             const workgroupId = localStorage.getItem('workgroup_id');
             try {
-                const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/eventattendancesummary?workgroup_id=${workgroupId}`);
+                const response = await fetch(`${API_URL}/eventattendancesummary?workgroup_id=${workgroupId}`);
                 const data = await response.json();
                 if (response.ok) {
                     setEventData(data.data);

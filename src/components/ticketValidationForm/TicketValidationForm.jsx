@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_URL } from '../../config/api';
 import { useNavigate } from 'react-router-dom';
 import './TicketValidationForm.css';
 
@@ -23,7 +24,7 @@ export default function TicketValidationForm() {
 
         try {
             const workgroupId = localStorage.getItem('workgroup_id'); // Obtener el workgroup_id de la sesión
-            const response = await fetch(`https://recgonback-8awa0rdv.b4a.run/ticket-view-code/${ticketCode}?workgroup_id=${workgroupId}`); // Enviar workgroup_id
+            const response = await fetch(`${API_URL}/ticket-view-code/${ticketCode}?workgroup_id=${workgroupId}`); // Enviar workgroup_id
             const data = await response.json();
             console.log("Respuesta de la API:", data); // Agregado para depuración
             if (response.ok) {
