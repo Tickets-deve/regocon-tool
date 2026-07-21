@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.register-user-form-tcf {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.register-user-form-tcf .custom-wawa {
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.sumbit-custom{
+    font-weight: 500;
+}
+
+.custom-cs-tcfe{
+    font-family: 'Noto Sans', sans-serif;
+    color: #ffffff;
+}
+
+.title-uts-tcfe{
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+}

@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-cs-tcta{
+    font-family: 'Noto Sans', sans-serif;
+    color: #ffffff;
+}
+
+.title-uts-tcta{
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    font-family: 'Noto Sans', sans-serif;
+    background: #1F2937;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.close-button-a {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #DD8329;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-button-a:hover {
+    background-color: #bf7021;
+}
+
+.download-button-a {
+    margin-top: 10px;
+    background-color: #2563EB; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.download-button-a:hover {
+    background-color: #1D4ED8; /* Darker green */
+}

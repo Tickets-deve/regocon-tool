@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.recommended-actions{
+    font-family: 'Not Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.recommended-actions .action-button {
+    background-color: #DD8329;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.recommended-actions .action-button:hover {
+    background-color: #bf7021;
+}
